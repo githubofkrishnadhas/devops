@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                // Get code from a GitHub repository
+                git url: 'https://github.com/githubofkrishnadhas/devops.git', branch: 'main',
+                credentialsId: 'githubofkrishnadhas'
+            }
+        }
+        stage('work') {
+            steps{
+                sh 'cd bash'
+                sh 'chmod +x sample.sh'
+                sh 'bash sample.sh'
+            }
+        }
+    }
+}

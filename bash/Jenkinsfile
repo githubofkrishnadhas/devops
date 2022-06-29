@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Initial Build') {
+            steps {
+                echo 'Building..'
+
+                sh '''
+                cd bash
+                chmod +x sample.sh
+                bash sample.sh
+                '''
+            }
+        }
+        post {
+        // Clean after build
+        always {
+            cleanWs()
+              
+            }
+
+        }
+    }
+}
