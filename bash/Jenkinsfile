@@ -7,6 +7,7 @@ pipeline {
                 echo 'Building..'
 
                 sh '''
+                ls -la
                 cd bash
                 chmod +x sample.sh
                 bash sample.sh
