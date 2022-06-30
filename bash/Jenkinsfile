@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker { image 'zenika/terraform-azure-cli:latest' }
        
-    }
+    
     stages {
         stage('Initial Build') {
             steps {
@@ -12,15 +12,15 @@ pipeline {
                   chmod +x sample.sh
                   bash sample.sh
                     '''
-                
+                }
             }
         }
-    }
         post {
         // Clean after build
         always {
             cleanWs()
               
             }
-}
+        }
+    }    
 }
