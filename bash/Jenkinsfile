@@ -4,6 +4,12 @@ pipeline {
     }
     
     stages {
+        stage('clean workspace') {
+            steps{
+            cleanWs()
+            }
+              
+        }
         stage('Initial Build') {
             steps {
                 echo 'Building..'
@@ -16,12 +22,12 @@ pipeline {
                 }
             }
         }
-        post {
-        // Clean after build
-        always {
+        stage('clean workspace') {
+            steps{
+        
             cleanWs()
-              
             }
+              
         }
     }    
 
