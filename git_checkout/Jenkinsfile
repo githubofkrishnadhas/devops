@@ -12,13 +12,13 @@ pipeline {
 
                 echo "Successfully checked out on git repository"
             }
-        }
-        post {
-        // Clean after build
-        // {
+        //}
+        stage('clean workspace') {
+            steps{
+        
             cleanWs()
+            }
               
-          //  }
         }
     }
 }
