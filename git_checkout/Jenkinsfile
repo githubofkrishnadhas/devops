@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                // Get code from a GitHub repository
+                git url: 'git@github.com:githubofkrishnadhas/devops.git', branch: 'main',
+                credentialsId: 'jenkins-ssh-key'
+                // under git url we will be providing the address of git repo we need to check out
+                //branch : we can specify branch names
+                // credentials id can be either github access token or name of ssh pvt key added in jenkins
+            }
+        }
+    }
+}
