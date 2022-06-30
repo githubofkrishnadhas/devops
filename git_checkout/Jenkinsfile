@@ -10,9 +10,9 @@ pipeline {
                 //branch : we can specify branch names
                 // credentials id can be either github access token or name of ssh pvt key added in jenkins
 
-                echo "Successfully checked out on git repository"
+                echo "Successfully checked out"
             }
-        //}
+        }
         stage('clean workspace') {
             steps{
         
@@ -20,6 +20,5 @@ pipeline {
             }
               
             }
-        }
     }
 }
