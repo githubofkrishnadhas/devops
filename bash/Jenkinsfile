@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker { image 'zenika/terraform-azure-cli:latest' }
-       
+    }
     
     stages {
         stage('Initial Build') {
@@ -10,6 +10,7 @@ pipeline {
                 sh''' 
                   cd bash
                   chmod +x sample.sh
+                  terraform --version
                   bash sample.sh
                     '''
                 }
@@ -23,4 +24,4 @@ pipeline {
             }
         }
     }    
-}
+
