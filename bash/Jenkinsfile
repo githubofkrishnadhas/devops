@@ -1,7 +1,7 @@
 pipeline {
-    agent {
-        docker { image 'zenika/terraform-azure-cli:latest' }
-    }
+    agent any
+      //  docker { image 'zenika/terraform-azure-cli:latest' }
+    //}
     
     stages {
         stage('clean workspace') {
@@ -30,4 +30,6 @@ pipeline {
               
         }
     }    
+
+
 }
