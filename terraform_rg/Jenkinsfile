@@ -2,7 +2,7 @@ pipeline {
     agent any
     stages {
         stage('Terraform deploy') {
-            echo "using terraform to create RG in Azure"
+            //echo "using terraform to create RG in Azure"
             steps {
                 withCredentials([azureServicePrincipal(credentialsId: 'contributor-role')]) {
                 sh '''
