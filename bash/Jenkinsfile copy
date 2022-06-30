@@ -1,17 +1,15 @@
 pipeline {
-    agent {
-        docker { image 'zenika/terraform-azure-cli:latest' }
-       
-    }
+    agent any
     stages {
         stage('Initial Build') {
             steps {
                 echo 'Building..'
-                sh''' 
+                bat''' 
                   cd bash
                   chmod +x sample.sh
                   bash sample.sh
-                    '''
+                   
+                '''
                 
             }
         }
