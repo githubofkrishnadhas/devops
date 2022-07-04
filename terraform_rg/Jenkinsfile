@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    stages {
+        stage('Terraform deploy') {
+            //echo "using terraform to create RG in Azure"
+            steps {
+                withCredentials([azureServicePrincipal('contributor-role')]) {
+                {
+                sh '''
+                cd terraform_rg
+                terraform init
+                terraform plan
+                terraform apply
+                '''                
+            }
+        }
+    }
+        stage('clean workspace') {
+            steps{
+            sh 'rm -rf .terraform'
+            cleanWs()
+            }
+              
+        }
+    }
+}
+}
